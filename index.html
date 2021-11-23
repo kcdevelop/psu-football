@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html charset="utf-8">
+  <head>
+    <meta
+      name="viewport"
+      content="width-device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <title>Penn State Football</title>
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="http://fast.fonts.net/cssapi/94782995-bb12-4df5-b867-a3c1dd4ea0eb.css"
+    />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <!--Loads JavaScript last-->
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!--Sticky Header-->
+      <header>
+        <h1 class="hidden-section-titles">Penn State Football</h1>
+        <a href="#" target="_blank"
+          ><img
+            id="logo"
+            class="img-responsive pull-left"
+            src="images/psu-logos/psu-football.svg"
+            alt="PENN STATE FOOTBALL"
+        /></a>
+        <div class="menu-icon-wrap pull-right">
+          <div class="mobile-menu-icon pull-right">
+            <img src="images/mobile-menu-icon.svg" alt="Menu" />
+          </div>
+        </div>
+        <div class="menu-wrap pull-right">
+          <ul class="social-bar pull-right">
+            <li class="pull-left">
+              <a href="https://www.facebook.com/PSUFball" target="_blank"
+                ><img src="images/facebook-icon.png" alt="Facebook"
+              /></a>
+            </li>
+            <li class="pull-left">
+              <a href="https://twitter.com/PennStateFball" target="_blank"
+                ><img src="images/twitter-icon.png" alt="Twitter"
+              /></a>
+            </li>
+            <li class="pull-left">
+              <a href="http://instagram.com/pennstatefball" target="_blank"
+                ><img src="images/instagram-icon.png" alt="Instagram"
+              /></a>
+            </li>
+          </ul>
+          <a
+            class="btn btn-default btn-lg pull-right"
+            href="https://oss.ticketmaster.com/aps/pennstate/EN/buy/details/14FB"
+            target="_blank"
+            >Buy Season Tickets</a
+          >
+        </div>
+      </header>
+      <!--Hero Feature-->
+      <section class="feature-block">
+        <div id="title-overlay" class="title-overlay">
+          <h1 class="hidden-section-titles">Unrivaled</h1>
+          <div class="title">
+            <img
+              src="images/psu-logos/psu-unrivaled.svg"
+              alt="UNRIVALED PENN STATE FOOTBALL"
+            />
+          </div>
+          <a
+            id="play-btn"
+            class="btn btn-default"
+            data-video="play-video"
+            target="_blank"
+            ><span class="glyphicon glyphicon-play"></span>Play Video</a
+          >
+          <a
+            id="play-btn-mobile"
+            class="btn btn-default"
+            href="https://www.youtube.com/watch?v=O6xhhvRtwQ8&fs=1&hd=0&rel=0"
+            data-video="play-video-mobile"
+            target="_blank"
+            ><span class="glyphicon glyphicon-play"></span>Play Video</a
+          >
+        </div>
+        <article id="poster" class="poster">
+          <h2 class="hidden-section-titles">Featured Poster</h2>
+          <img
+            id="poster-img"
+            src="images/hero.jpg"
+            alt="Penn State Football Player"
+          />
+        </article>
+        <article id="video-feature" class="video-feature">
+          <h2 class="hidden-section-titles">Featured Video</h2>
+          <div id="video"></div>
+          <script>
+            $(document).ready(function () {
+              var posterBlock = $(".poster");
+              var posterBlockSet = $(".poster, .title-overlay");
+              var videoBlock = $(".video-feature");
+              var video = $("#video");
+              var play = $(".feature-block .title-overlay #play-btn");
+              // Inject YouTube API script
+              var tag = document.createElement("script");
+              tag.src = "//www.youtube.com/player_api";
+              var firstScriptTag = document.getElementsByTagName("script")[0];
+              firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+              var player;
+              window.onYouTubePlayerAPIReady = function () {
+                // create the global player from the specific iframe (#video)
+                player = new YT.Player("video", {
+                  width: "100%",
+                  height: "100%",
+                  playerVars: {
+                    enablejsapi: 1,
+                    showinfo: 0,
+                    showsearch: 0,
+                    controls: 0,
+                    rel: 0,
+                  },
+                  videoId: "O6xhhvRtwQ8",
+                  events: {
+                    // call this function when player is ready to use
+                    onReady: onPlayerReady,
+                    onStateChange: onPlayerStateChange,
+                  },
+                });
+              };
+
+              function onPlayerReady(event) {
+                //event.target.playVideo();
+              }
+
+              function onPlayerStateChange(event) {
+                if (event.data === 0) {
+                  $(".poster, .title-overlay").css("display", "block");
+                  $(".video-feature").css("display", "none");
+                }
+              }
+
+              // Hero/Video control functions
+              function switchPoster(event) {
+                event.preventDefault();
+
+                var posterHght = posterBlock.height();
+
+                posterBlockSet.css("display", "none");
+                videoBlock.height(posterHght).css("display", "block");
+                {
+                  var fn = function () {
+                    player.playVideo();
+                  };
+                  setTimeout(fn, 1000);
+                }
+              }
+
+              // Video pause on scroll
+
+              $(window).scroll(function () {
+                var test = $(window).scrollTop();
+
+                if (videoBlock.css("display") == "block" && test >= 320) {
+                  {
+                    var fn = function () {
+                      player.stopVideo();
+                      $(".poster, .title-overlay").css("display", "block");
+                      $(".video-feature").css("display", "none");
+                    };
+                    setTimeout(fn, 1000);
+                  }
+                } else {
+                }
+              });
+
+              $(window).resize(function () {
+                var winWidth = $(window).width();
+                var headerHght = $("header").height() + 20;
+
+                var winHghtCalc = winWidth / 2;
+
+                videoBlock.height(winHghtCalc);
+                videoBlock.css("marginTop", headerHght + "px");
+                video.height(winHghtCalc);
+              });
+
+              play.on("click", switchPoster);
+            });
+          </script>
+        </article>
+      </section>
+
+      <aside class="row cta-block">
+        <div class="section-title">
+          <h1 id="hd">Don't Miss A Moment!</h1>
+          <!--<p>Season tickets for the 2014 Penn State Football season now available online!</p>-->
+          <a
+            class="btn btn-default"
+            href="https://oss.ticketmaster.com/aps/pennstate/EN/buy/details/14FB"
+            target="_blank"
+            >Buy Season Tickets</a
+          >
+        </div>
+      </aside>
+
+      <!--Schedule-->
+
+      <section class="row schedule-block">
+        <div class="section-title">
+          <h1 class="title">2014 Schedule</h1>
+          <hr />
+          <a
+            class="btn btn-default left pull-left"
+            href="#"
+            data-game="home"
+            target="_blank"
+            >Home Games</a
+          >
+          <a
+            class="btn btn-default right pull-right"
+            href="#"
+            data-game="away"
+            target="_blank"
+            >Away Games</a
+          >
+          <div class="clear-height"></div>
+        </div>
+
+        <div class="schedule-wrap">
+          <article class="schedule-pod">
+            <div class="left-top pull-left">
+              <img
+                class="img-responsive pull-left"
+                src="images/team-logos/akron-logo.svg"
+                alt="Akron"
+              />
+              <h2>Akron</h2>
+              <p class="details"><span>September 6</span> Community Hero Day</p>
+            </div>
+
+            <div class="right-bottom pull-right">
+              <p class="details"><span>Beaver Stadium</span> TBD Kickoff</p>
+            </div>
+          </article>
+
+          <article class="schedule-pod">
+            <div class="left-top pull-left">
+              <img
+                class="img-responsive pull-left"
+                src="images/team-logos/um-logo.svg"
+                alt="Massachusetts"
+              />
+              <h2>Massachusetts</h2>
+              <p class="details"><span>September 20</span> Band Day</p>
+            </div>
+
+            <div class="right-bottom pull-right">
+              <p class="details"><span>Beaver Stadium</span> TBD Kickoff</p>
+            </div>
+          </article>
+
+          <article class="schedule-pod">
+            <div class="left-top pull-left">
+              <img
+                class="img-responsive pull-left"
+                src="images/team-logos/northwest-logo.svg"
+                alt="Northwestern"
+              />
+              <h2>Northwestern</h2>
+              <p class="details">
+                <span>September 27</span> Homecoming / Organized Labor Day
+              </p>
+            </div>
+
+            <div class="right-bottom pull-right">
+              <p class="details"><span>Beaver Stadium</span> TBD Kickoff</p>
+            </div>
+          </article>
+
+          <article class="schedule-pod">
+            <div class="left-top pull-left">
+              <img
+                class="img-responsive pull-left"
+                src="images/team-logos/ohio-state-logo.svg"
+                alt="Ohio"
+              />
+              <h2>Ohio</h2>
+              <p class="details"><span>October 25</span> White Out</p>
+            </div>
+
+            <div class="right-bottom pull-right">
+              <p class="details"><span>Beaver Stadium</span> TBD Kickoff</p>
+            </div>
+          </article>
+
+          <article class="schedule-pod">
+            <div class="left-top pull-left">
+              <img
+                class="img-responsive pull-left"
+                src="images/team-logos/maryland-logo.svg"
+                alt="Maryland"
+              />
+              <h2>Maryland</h2>
+              <p class="details">
+                <span>November 1</span>Military Appreciation Day
+              </p>
+            </div>
+
+            <div class="right-bottom pull-right">
+              <p class="details"><span>Beaver Stadium</span> TBD Kickoff</p>
+            </div>
+          </article>
+
+          <article class="schedule-pod">
+            <div class="left-top pull-left">
+              <img
+                class="img-responsive pull-left"
+                src="images/team-logos/temple-logo.svg"
+                alt="Temple"
+              />
+              <h2>Temple</h2>
+              <p class="details"><span>November 15</span> All-U-Day</p>
+            </div>
+
+            <div class="right-bottom pull-right">
+              <p class="details"><span>Beaver Stadium</span> TBD Kickoff</p>
+            </div>
+          </article>
+
+          <article class="schedule-pod">
+            <div class="left-top pull-left">
+              <img
+                class="img-responsive pull-left"
+                src="images/team-logos/michigan-logo.svg"
+                alt="Michigan"
+              />
+              <h2>Michigan</h2>
+              <p class="details"><span>November 29</span> Senior Day</p>
+            </div>
+
+            <div class="right-bottom pull-right">
+              <p class="details"><span>Beaver Stadium</span> TBD Kickoff</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="cta-block">
+          <h3 class="hidden-section-titles">Season Tickets</h3>
+          <a
+            class="btn btn-default"
+            target="_blank"
+            href="https://oss.ticketmaster.com/aps/pennstate/EN/buy/details/14FB"
+            >Buy Season Tickets</a
+          >
+        </div>
+      </section>
+
+      <aside class="row cta-block cta-block-last">
+        <div class="section-title">
+          <h1><span>STAY</span> IN THE KNOW.</h1>
+          <p>
+            Be the first to receive game info, ticket sale notifications, and
+            special pricing opportunities.
+          </p>
+
+          <div class="form-wrapper">
+            <form id="email-cta" action="" method="post">
+              <div class="message"></div>
+              <input
+                type="text"
+                name="email"
+                placeholder="ENTER EMAIL ADDRESS"
+              />
+              <input type="submit" name="submit" value="Sign Up" />
+            </form>
+          </div>
+        </div>
+      </aside>
+
+      <aside class="row cta-block cta-block-last-success">
+        <div class="section-title">
+          <h1>Thank you for signing up!</h1>
+          <p>We look forward to seeing you at Penn State football events.</p>
+
+          <div class="form-wrapper">
+            <img src="../images/psu-logos/psu-logo.svg" alt="PSU" />
+          </div>
+        </div>
+      </aside>
+
+      <footer>
+        <p>
+          &copy; 2014 Penn State Football. All rights reserved.
+          <a href="http://gopsusports.com" target="_blank">GoPSUSports.com</a>
+        </p>
+        <div class="logo"></div>
+      </footer>
+    </div>
+
+    <div class="mobile-menu-wrap">
+      <ul class="mobile-social-bar">
+        <li>
+          <div class="close-btn"></div>
+          <a class="link home" href="/" target="_blank"
+            ><img
+              class="logo"
+              src="images/psu-logos/psu-football.svg"
+              alt="PENN STATE FOOTBALL"
+          /></a>
+        </li>
+        <li>
+          <a
+            class="link tickets"
+            href="https://oss.ticketmaster.com/aps/pennstate/EN/buy/details/14FB"
+            target="_blank"
+            >Buy Season Tickets</a
+          >
+        </li>
+        <li>
+          <a
+            class="link facebook"
+            href="https://www.facebook.com/PSUFball"
+            target="_blank"
+            ><img src="images/facebook-icon.png" alt="Facebook" /> Facebook</a
+          >
+        </li>
+        <li>
+          <a
+            class="link twitter"
+            href="https://twitter.com/PennStateFball"
+            target="_blank"
+            ><img src="images/twitter-icon.png" alt="Twitter" /> Twitter</a
+          >
+        </li>
+        <li>
+          <a
+            class="link instagram"
+            href="http://instagram.com/pennstatefball"
+            target="_blank"
+            ><img src="images/instagram-icon.png" alt="Instagram" />
+            Instagram</a
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
