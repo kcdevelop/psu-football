@@ -83,11 +83,10 @@ footer,
   color: #ffffff;
 }
 .btn-default {
-  width: 149px;
-  height: auto;
+  max-width: 200px;
   padding: 8px 12px;
   display: block;
-  font-family: "HelveticaNeueW02-67MdCn 694060", Helvetica;
+  font-family: "HelveticaNeueW02-67MdCn694060", Helvetica;
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
@@ -132,11 +131,10 @@ header .mobile-menu-icon img {
 }
 header .btn-default,
 .mobile-menu-wrap .btn-default {
-  width: 149px;
-  height: auto;
+  width: 190px;
   padding: 8px 12px;
   display: block;
-  font-family: "HelveticaNeueW02-67MdCn 694060", Helvetica;
+  font-family: "HelveticaNeueW02-67MdCn694060", Helvetica;
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
@@ -265,11 +263,10 @@ header .social-bar img,
   display: block;
 }
 .feature-block .title-overlay .btn-default {
-  width: 118px;
-  height: #002d62;
+  max-width: 190px;
   padding: 8px 12px;
   display: block;
-  font-family: "HelveticaNeueW02-67MdCn 694060", Helvetica;
+  font-family: "HelveticaNeueW02-67MdCn694060", Helvetica;
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
@@ -325,11 +322,9 @@ header .social-bar img,
   margin-top: -2px;
 }
 .cta-block .btn-default {
-  width: 149px;
-  height: auto;
   padding: 8px 12px;
   display: block;
-  font-family: "HelveticaNeueW02-67MdCn 694060", Helvetica;
+  font-family: "HelveticaNeueW02-67MdCn694060", Helvetica;
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
@@ -354,7 +349,7 @@ header .social-bar img,
   content: "";
 }
 .schedule-block .section-title {
-  width: 306px;
+  width: 340px;
   margin: 34px auto 37px;
   display: table;
   content: "";
@@ -368,11 +363,9 @@ header .social-bar img,
   background-color: #ffffff;
 }
 .schedule-block .section-title .btn-default {
-  width: 111px;
-  height: auto;
   padding: 8px 12px;
   display: block;
-  font-family: "HelveticaNeueW02-67MdCn 694060", Helvetica;
+  font-family: "HelveticaNeueW02-67MdCn694060", Helvetica;
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
@@ -492,11 +485,9 @@ header .social-bar img,
   background-color: transparent;
 }
 .schedule-block .cta-block .btn-default {
-  width: 149px;
-  height: auto;
   padding: 8px 12px;
   display: block;
-  font-family: "HelveticaNeueW02-67MdCn 694060", Helvetica;
+  font-family: "HelveticaNeueW02-67MdCn694060", Helvetica;
   font-size: 15px;
   text-transform: uppercase;
   text-align: center;
@@ -533,7 +524,7 @@ header .social-bar img,
 .cta-block-last-success .section-title p {
   margin-top: 4px;
   margin-bottom: 20px;
-  font-family: "HelveticaNeueW02-67MdCn 694060", Helvetica;
+  font-family: "HelveticaNeueW02-67MdCn694060", Helvetica;
   font-size: 17px;
   color: #5f5f5f !important;
 }
@@ -547,7 +538,7 @@ header .social-bar img,
   height: 35px;
   display: table-cell;
   border: none;
-  font-family: "HelveticaNeueW02-67MdCn 694060", Helvetica;
+  font-family: "HelveticaNeueW02-67MdCn694060", Helvetica;
   font-size: 15px;
   font-weight: normal;
   text-transform: uppercase;
@@ -564,7 +555,6 @@ header .social-bar img,
 }
 .cta-block-last .form-wrapper input[type="submit"],
 .cta-block-last-success .form-wrapper input[type="submit"] {
-  width: 78px;
   padding: 2px 16px 0px;
   display: block;
   float: right;
@@ -965,7 +955,6 @@ footer .logo {
   }
   .cta-block-last .form-wrapper input[type="submit"] {
     transition: margin-top 1s ease-in;
-    width: 77px;
     margin-top: 0px;
     padding: 0px;
     font-size: 12px;
