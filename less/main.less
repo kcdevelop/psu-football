@@ -1,0 +1,1130 @@
+/****************** 
+PSU - Custom Styles 
+*******************/
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 460px and up) */
+@screen-xxxsm-max: 420px;
+
+/* Small devices (tablets, 460px and up) */
+@screen-xxsm-max: 460px;
+
+/* Small devices (tablets, 680px and up) */
+@screen-xsm-max: 600px;
+
+/* Small devices (tablets, 768px and up) */
+@screen-sm-max: 768px;
+
+/* Medium devices (desktops, : 900px and up) */
+@screen-md-max: 920px;
+
+/* Large devices (large desktops, 1200px and up) */
+@screen-lg-max: 1200px;
+
+// Custom Colors
+
+@navy-blue: #002d62;
+@light-gray: #ebeaea;
+@gray-clay: #d1d3d4;
+@gray: #5f5f5f;
+@med-gray: #e6e7e8;
+@dark-gray: #8b8a8a;
+@white: #ffffff;
+@sky-blue: #aec7dd;
+@deep-gray: #bdbdbd;
+@error-red: #ec0000;
+
+// Fonts
+
+@font-face {
+    font-family: 'liberatorregular';
+    src: url('../fonts/liberator-webfont.eot');
+    src: url('../fonts/liberator-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/liberator-webfont.woff') format('woff'),
+         url('../fonts/liberator-webfont.ttf') format('truetype'),
+         url('../fonts/liberator-webfont.svg#liberatorregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+// Mixins
+
+.sect-props(@wdth: 100%; @hght: auto; @marg: 0px; @pads: 0px; @bgcl: transparent;) {
+	width: @wdth;
+	height: @hght;
+	margin: @marg;
+	padding: @pads;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	background-color: @bgcl;
+}
+
+.comp-props(@wdth: 100%; @hght: auto; @marg: 0px; @pads: 0px;) {
+	width: @wdth;
+	height: @hght;
+	margin: @marg;
+	padding: @pads;
+}
+
+.radius-props(@radii: 0px;) {
+	-webkit-border-radius: @radii;
+	-moz-border-radius: @radii;
+	border-radius: @radii;
+}
+
+.shadow-props(@shadow: 0px 0px 0px #00000;) {
+	-webkit-box-shadow: @shadow;
+	-moz-box-shadow: @shadow;
+	box-shadow: @shadow;
+}
+
+.button-props(@wdth: 149px; @hght: auto; @fnt-sz: 15px; @clr: @navy-blue; @bgcl: transparent; @dsply: block;) {
+	width: @wdth;
+	height: @hght;
+	padding: 8px 12px;
+	display: @dsply;
+	font-family: 'HelveticaNeueW02-67MdCn 694060', Helvetica;
+	font-size: @fnt-sz;
+	text-transform: uppercase;
+	text-align: center;
+	text-decoration: none;
+	border: none;
+	border-radius: none;
+	color: @clr;
+	background-color: @bgcl;
+	.radius-props();
+	cursor: pointer;
+}
+
+.accent {
+	.shadow-props(@shadow: -1px 0px 10px #000000;);
+}
+
+// Fixes
+
+.clear-fix() {
+	display: table;
+	content: "";
+}
+
+// States
+
+.active-blue {
+	color: @white !important;
+	background-color: @navy-blue !important;
+}
+
+.inactive-white {
+	color: @navy-blue !important;
+	background-color: @white !important;
+
+	&:hover {
+		color: @white !important;
+		background-color: @navy-blue !important;
+	}
+}
+
+.error {
+	background-color: @error-red !important;
+}
+
+.success{
+	display: block !important;
+}
+
+// Document Styles
+
+ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+.hidden-section-titles {
+	display: none;
+}
+
+.container, header, 
+section, aside, 
+footer, .row {
+	.sect-props();
+}
+
+.container {
+	min-width: 320px;
+	position: relative;
+	z-index: 10;
+	overflow: hidden;
+}
+
+.section-title {
+	margin: 0px auto;
+	text-align: center;
+
+	h1 {
+		margin: 0px auto;
+		font-family: 'liberatorregular';
+		font-size: 45px;
+		line-height: 45px;
+		text-transform: uppercase;
+		color: @white;
+	}
+}
+
+.btn-default {
+	.button-props(@clr: @navy-blue; @bgcl: #ffffff;);
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+header {
+	display: block !important;
+	padding: 8px 24px 8px 24px; 
+	background-color: @navy-blue;
+	position: fixed;
+	z-index: 2000;
+	.clear-fix();
+
+	#logo {
+		.comp-props(@wdth: 270px; @hght: auto; @marg: 3px 0px 0px;);
+	}
+
+	.mobile-menu-icon {
+		width: 34px;
+		height: auto;
+		margin-top: 3px;
+		display: none;
+		position: relative;
+		cursor: pointer;
+
+		img {
+			width: 100%;
+		}
+	}
+}
+
+header,
+.mobile-menu-wrap {
+
+	.btn-default {
+  		.button-props(@clr: @navy-blue; @bgcl: #ffffff;);
+		margin-right: 36px;
+
+		&:hover {
+			color: @navy-blue;
+			background-color: @deep-gray;
+		}
+	}
+
+	.social-bar {
+		margin-top: 6px;
+
+		li {
+			margin-right: 10px;
+		}
+
+		li:last-child {
+			margin-right: 0px;
+		}
+
+		img {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}
+
+.mobile-menu-wrap {
+	width: 206px;
+	position: fixed;
+	/*display: none;*/
+	top: 0px;
+	right: 0px;
+	z-index: 0;
+	overflow: hidden;
+
+	.mobile-social-bar {
+		width: 100%;
+		list-style: none;
+		float: right;
+
+		li {
+			border-bottom: solid 2px @white;
+			background-color: @navy-blue;
+		}
+		
+		.link {
+			padding: 16px 0px 16px 22px;
+			display: block;
+			position: relative;
+			font-family: 'HelveticaNeueW01-77BdCn 692722', Helvetica;
+			font-size: 15px;
+			color: @white;
+			text-transform: uppercase;
+			text-decoration: none;
+			cursor: pointer;
+		}
+
+		.home {
+			padding: 9px 0px 9px 8px;
+
+			img {
+				width: 74%;
+				height: auto;
+				margin-left: 12px;
+			}
+		}
+
+		.facebook, 
+		.twitter, 
+		.instagram {
+
+			img {
+				width: 16px;
+				height: 16px;
+				margin-right: 8px;
+				position: relative;
+				top: -1px;
+			}
+		}
+
+		.close-btn {
+			width: 45px;
+			height: 35px;
+			display: block;
+			position: absolute;
+			top: 2px;
+			right: 0px;
+			z-index: 800;
+			background: url("../images/mobile-menu-close.png") no-repeat center center transparent;
+			background-size: 30px 30px;
+			cursor: pointer;
+		}	
+	}
+}
+
+.mobile-menu-wrap .btn-default {
+	margin-right: 0px;
+}
+
+.mobile-menu-wrap .social-bar {
+	margin-top: 15px;
+}
+
+.feature-block {
+	height: auto;
+	position: relative;
+	.clear-fix();
+	z-index: 20;
+	background-color: @navy-blue;
+
+	.title-overlay {
+		width: 100%;
+		position: absolute;
+		top: 0px;
+		z-index: 100;
+
+		.title {
+			width: 35%;
+			height: auto;
+			min-width: 220px;
+			max-width: 552px;
+			margin: 115px auto 0px;
+
+			img {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+		}
+
+		.btn-default {
+	  		.button-props(@wdth: 118px; @navy-blue; @bgcl: #ffffff;);
+	  		margin: 22px auto 0px;
+
+	  		&:hover {
+	  			color: @white;
+				background-color: @navy-blue;
+			}
+
+	  		.glyphicon-play {
+	  			height: 19px;
+	  			padding-right: 9px;
+	  			font-size: 1.08em;
+	  		}
+		}
+
+		#play-btn {
+			display: block;
+		}
+
+		#play-btn-mobile {
+			display: none;
+		}
+	}
+
+	.poster,
+	.video-feature {
+		width: 100%;
+		height: auto;
+		position: relative;
+		background-color: @navy-blue;
+		overflow: hidden;
+	}
+
+	.poster img,
+	#video {
+		width: 100%;
+	}
+
+	#video {
+		margin-top: 10px 0px 0px;
+
+	}
+
+	.video-feature {
+		display: none;
+	}
+}
+
+.cta-block {
+	padding: 36px 0px;
+	background-color: @navy-blue;
+
+	.section-title h1 {
+		margin-top: -2px;
+	}
+
+	.btn-default {
+		.button-props(@clr: @navy-blue; @bgcl: #ffffff;);
+		margin: 2px auto 0px;
+
+		&:hover {
+			background-color: @deep-gray;
+		}
+	}
+}
+
+.schedule-block {
+	background: url("../images/psu-field.jpg") no-repeat 0px bottom @sky-blue;
+	background-size: cover;
+	.clear-fix();
+
+	.section-title {
+		width: 306px;
+		margin: 34px auto 37px;
+		.clear-fix();
+
+		hr {
+			width: 301px;
+			height: 2px;
+			margin-top: 8px;
+			margin-bottom: 15px;
+			border: none;
+			background-color: @white;
+		}
+
+		.btn-default {
+			.button-props(@wdth: 111px;);
+		}
+
+		.left {
+			margin-left: 35px;
+			color: @white;
+			background-color: @navy-blue;
+		}
+
+		.right {
+			margin-right: 35px;
+			color: @navy-blue;
+			background-color: @white;
+
+			&:hover {
+				color: @white;
+				background-color: @navy-blue;
+			}
+		}
+	}
+
+	.schedule-wrap {
+		width: 100%;
+		max-width: 900px;
+		margin: 0px auto 36px;
+
+		.schedule-pod {
+			width: 100%;
+			height: 100px;
+			margin-bottom: 5px;
+			padding: 0px;
+			background-color: rgba(255, 255, 255, .8);
+			.clear-fix();
+
+			.left-top,
+			.right-bottom {
+				display: table-cell;
+				font-family: helvetica;
+			}
+
+			.left-top {
+				 	width: 60%;
+					text-align: left;
+					text-transform: uppercase;
+
+				.icon-wrap {
+					width: 100px;
+					height: 100px;
+					margin-left: 30px;
+					margin-right: 26px;
+					float: left;
+				}
+
+				img {
+					width: 100%;
+					height: 85%;
+					margin: 8px 0px 0px;
+				}
+
+				img[alt="Akron"],
+				img[alt="Massachusetts"] {
+					margin-left: 7px;
+				}
+
+				h2 {
+					margin: 30px 0px 2px;
+					font-family: 'liberatorregular';
+					font-size: 30px;
+					line-height: 19px;
+					color: @navy-blue;
+				}
+
+				.details {
+					font-family: 'HelveticaNeueW01-57Cn', Helvetica;
+					font-size: 15px;
+					line-height: 18px;
+					color: @gray;
+
+					span {
+						display: block;
+						font-family: 'HelveticaNeueW01-77BdCn 692722', Helvetica;
+						font-size: 18px;
+					}
+				}
+			}
+
+			.right-bottom {
+				margin-top: 33px;
+				margin-right: 46px;
+					text-align: right;
+					text-transform: uppercase;
+
+				.details {
+					height: inherit;
+					font-family: 'HelveticaNeueW01-57Cn', Helvetica;
+					font-size: 15px;
+					line-height: 18px;
+					color: @gray;
+
+					span {
+						display: block;
+						font-family: 'HelveticaNeueW01-77BdCn 692722', Helvetica;
+						font-size: 18px;
+					}
+				}
+			}
+		}
+
+		.schedule-pod:nth-child(2n) {
+			background-color: rgba(209, 211, 212, .8);
+		}
+
+		.schedule-pod:last-child {
+			margin-bottom: 0px;
+		}
+	}
+
+	.cta-block {
+		margin: 0px auto 36px;
+		padding: 0px;
+		background-color: transparent;
+
+		.btn-default {
+			.button-props(@clr: @navy-blue; @bgcl: #ffffff;);
+			margin: 0px auto;
+
+			&:hover {
+				background-color: @deep-gray;
+			}
+		}
+	}
+
+}
+
+.cta-block-last,
+.cta-block-last-success {
+	padding: 36px 0px;
+	background-color: @white;
+
+	.section-title h1,
+	.section-title p {
+		color: @navy-blue !important;
+	}
+
+	.section-title h1 {
+		letter-spacing: -2px;
+	}
+
+	.section-title p {
+		margin-top: 4px;
+		margin-bottom: 20px;
+		font-family: 'HelveticaNeueW02-67MdCn 694060', Helvetica;
+		font-size: 17px;
+		color: @gray !important;
+	}
+
+	.form-wrapper {
+
+		form {
+			margin: 0px auto;
+			display: table;
+		}
+
+		input {
+			height: 35px;
+			display: table-cell;
+			border: none;
+			font-family: 'HelveticaNeueW02-67MdCn 694060',Helvetica;
+			font-size: 15px;
+			font-weight: normal;
+			text-transform: uppercase;
+		}
+	
+		input[name="email"] {
+			width: 321px;
+			margin-right: 12px;
+			padding: 0px 10px;
+			display: block;
+			float: left;
+			color: @gray;
+			background-color: @light-gray;
+		}
+
+		input[type="submit"] {
+			width: 78px;
+			padding: 2px 16px 0px;
+			display: block;
+			float: right;
+			color: @white;
+			background-color: @navy-blue;
+
+			&:hover {
+				color: @navy-blue;
+				background-color: @deep-gray;
+			}
+		}
+
+	}
+	.error {
+		color: @white !important;
+	}
+}
+
+.cta-block-last-success .form-wrapper {
+	text-align: center;
+}
+
+.cta-block-last-success .form-wrapper img {
+	width: 106px;
+	height: 72px;
+}
+
+.cta-block-last-success {
+	display: none;
+}
+
+footer {
+	height: 165px;
+	font-family: arial;
+	font-size: 14.5px;
+	text-align: center;
+	text-transform: uppercase;
+	color: @navy-blue;
+	background: @gray-clay;
+
+	p {
+		font-size: 12px;
+		margin: 0px;
+		padding: 44px 0px 20px;
+		color: @navy-blue;
+
+		a {
+			color: @navy-blue;
+			text-decoration: underline;
+			text-transform: none;
+		}
+	}
+
+	.logo {
+		width: 184px;
+		margin: 0 auto;
+		background: url("../images/unrivaled-footer.png") no-repeat 0px bottom;
+		height: 71px;
+	}
+}
+
+@media screen and (max-width:@screen-md-max) {
+
+	header #logo {
+		margin-top: 0px;
+	}
+
+	header .menu-wrap {
+		display: none;
+	}
+
+	header .mobile-menu-icon {
+		display: block;
+	}
+
+	.feature-block .title-overlay .title {
+		margin-top: 100px;
+	}
+
+	.feature-block .title-overlay .title img {
+		display: none;
+	}
+
+	.feature-block .title-overlay #play-btn {
+		display: none;
+	}
+
+	.feature-block .title-overlay #play-btn-mobile {
+		display: block;
+	}
+
+	.cta-block, .schedule-block {
+		transition: all 1s ease-in;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+@media screen and (max-width:@screen-sm-max) {
+
+	.cta-block, .schedule-block {
+		padding-top: 18px;
+		padding-bottom: 18px;
+	}
+
+	.section-title h1 {
+		font-size: 35px;
+		line-height: 35px;
+	}
+
+	.feature-block .title-overlay .title img {
+		display: none;
+	}
+
+	.feature-block .title-overlay .title {
+		margin-top: 88px;
+	}
+
+	.schedule-block .schedule-wrap {
+		margin-bottom: 18px;
+	}	
+
+	.schedule-block .schedule-wrap .schedule-pod {
+		padding: 20px;
+		overflow: hidden;
+	}	
+
+	.schedule-block .section-title {
+		margin: 0px auto 18px;
+	}
+
+	.schedule-block .section-title h1 {
+		color: @navy-blue;
+	}
+
+	.schedule-block .section-title hr {
+		width: 235px;
+		background-color: @navy-blue;
+	}
+
+	.schedule-block .cta-block {
+		margin-bottom: 0px;
+	}
+
+	.schedule-block .schedule-wrap .schedule-pod {
+		transition: width 1s ease-in;
+		width: 70%;
+		margin: 0 auto 5px;
+	}
+
+	.schedule-block .schedule-wrap .schedule-pod .left-top,
+	.schedule-block .schedule-wrap .schedule-pod .right-bottom {
+		width: 100%;
+		margin: 0px;
+		float: none;
+	}
+
+	.schedule-block .schedule-wrap .schedule-pod .left-top {
+		width: 100%;
+
+		h2,
+		.details {
+			width: 100%;
+			text-align: center;
+			clear: both;
+		}
+		
+		h2 {
+			transition: all 1s ease-in;
+			font-size: 34px;
+			margin: 22px 0px 0px;
+		}
+
+		.details {
+			margin: 15px 0px 15px;
+			font-size: 17x;
+
+			span {
+				transition: all 1s ease-in;
+				margin: 11px 0px 5px;
+				font-size: 25px;
+			}
+		}
+
+		.icon-wrap {
+			width: 100%;
+			height: auto;
+			margin: 0px auto;
+			display: block !important;
+			float: none;
+			clear: both;
+			overflow: hidden;
+			.clear-fix();
+
+			img {
+				width: 210px;
+				height: 200px;
+				margin: 0px auto;
+				float: none !important;
+			}
+		}
+
+			#akron {
+				height: 160px;
+				margin: -43px auto 0px;
+			}			
+
+			#massachusetts {
+				height: 168px;
+				margin: -35px auto 0px;	
+			}
+
+			#northwestern {
+				height: 186px;
+				margin: -18px auto 0px;	
+			}
+
+			#ohio {
+				height: 202px;	
+				margin: 0px auto 0px;	
+			}
+
+			#maryland {
+				height: 196px;
+				margin: -6px auto 0px;	
+			}
+
+			#temple {
+				height: 203px;
+				margin: 0px auto 0px;	
+			}
+
+			#michiganst {
+				height: 191px;
+				margin: -12px auto 0px;	
+			}
+
+			#ucf {
+				height: 188px;
+				margin: -11px auto 0px;	
+			}
+
+			#rutgers {
+				height: 179px;
+				margin: -23px auto 0px;	
+			}
+
+			#michigan {
+				height: 181px;
+				margin: -25px auto 0px;	
+			}
+
+			#indiana {
+				height: 200px;
+				margin: -3px auto 0px;	
+			}
+
+			#illinois {	
+				height: 184px;		
+				margin: -3px auto 0px;	
+			}
+	}
+
+	.schedule-block .schedule-wrap .schedule-pod .right-bottom {
+		transition: all 1s ease-in;
+		margin-top: 0px;
+		text-align: center;
+
+		.details {
+			margin: 0px;
+			font-size: 14px;
+
+			span {
+				transition: all 1s ease-in;
+				font-size: 17px;
+				line-height: 14px;
+			}
+		}
+	}
+
+	.cta-block-last .section-title p, 
+	.cta-block-last-success .section-title p {
+		 font-size: 15px;
+	}
+
+	footer {
+		height: 67px;
+	}
+
+	footer p {
+		padding-top: 26px;
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width:@screen-xsm-max) {
+
+	header #logo {
+		width: 228px;
+		margin-top: 2px;
+	}
+
+	header .mobile-menu-icon {
+		margin-top: 2px;
+	}
+	
+	.section-title h1 {
+		font-size: 30px;
+		line-height: 30px;
+	}
+
+	.schedule-block .section-title hr {
+		width: 200px;
+	}
+
+	.schedule-block .schedule-wrap .schedule-pod {
+		transition: width 1s ease-in;
+		width: 80%;
+	}
+
+	.schedule-block .schedule-wrap .schedule-pod .left-top {
+	
+		h2 {
+			transition: all 1s ease-in;
+			margin: 26px 0px 0px;
+		}
+
+		.details {
+			margin: 15px 0px 15px;
+
+			span {
+				transition: all 1s ease-in;
+				margin: 11px 0px 5px;
+			}
+		}
+
+		.icon-wrap {
+
+			img {
+				width: 121px;
+				height: 114px;
+			}
+		}
+
+		#akron {
+			height: 91px;
+			margin-top: -25px;
+		}			
+
+		#massachusetts {
+			height: 95px;
+			margin-top: -20px;
+		}
+
+		#northwestern {
+			height: 105px;
+			margin-top: -10px;
+		}
+
+		#ohio, #temple {
+			height: 114px;
+		}
+
+		#maryland {
+			height: 111px;
+			margin-top: -3px;
+		}
+
+		#michiganst {
+			height: 108px;
+			margin-top: -6px;
+		}
+
+		#ucf {
+			height: 106px;
+			margin-top: -5px;
+		}
+
+		#rutgers {
+			height: 101px;	
+			margin-top: -12px;
+		}
+
+		#michigan {
+			height: 102px;
+			margin-top: -14px;
+		}
+
+		#indiana {
+			height: 112px;
+			margin-top: -1px;
+		}
+
+		#illinois {	
+			height: 104px;
+			margin-top: -10px;
+		}
+	}
+
+	.schedule-block .schedule-wrap .schedule-pod .right-bottom {
+
+		.details {
+			margin: 0px;
+			font-size: 14px;
+
+			span {
+				transition: all 1s ease-in;
+				font-size: 17px;
+				line-height: 14px;
+			}
+		}
+	}
+
+	footer p {
+		font-size: 11px;
+	}
+}
+
+@media screen and (max-width:@screen-xxsm-max) {
+
+	.feature-block .title-overlay .title {
+		margin-top: 64px;
+	}
+
+	.cta-block-last .section-title p {
+		font-size: 16px;
+	}
+
+	.cta-block-last .form-wrapper input[type="text"] {
+		width: 254px;
+	}
+
+	.schedule-block .schedule-wrap .schedule-pod {
+		transition: width 1s ease-in;
+		width: 90%;
+	}
+
+	footer p {
+		padding-top: 20px;
+	}
+}
+
+@media screen and (max-width:@screen-xxxsm-max) {
+
+	header {
+		padding-left: 15px;
+		padding-right: 15px;
+		display: block;
+	}
+
+	.feature-block .title-overlay .btn-default {
+		font-size: 14px;
+	}
+
+	.cta-block .btn-default {
+		margin-top: 12px;
+	}
+
+	.schedule-block .section-title hr {
+		margin-bottom: 11px;
+		margin-top: 2px;
+	}
+
+	.schedule-block .section-title .btn-default {
+		width: 48.5%;
+	}
+
+	.schedule-block .section-title .left {
+		margin-left: 0px;
+	}
+
+	.schedule-block .section-title .right {
+		margin-right: 0px;
+	}
+
+	.schedule-block .schedule-wrap .schedule-pod {
+		transition: width 1s ease-in;
+		width: 100%;
+	}
+
+	.cta-block-last .section-title p {
+		padding: 2px 7px 2px;
+		font-size: 14px;
+		line-height: 15px;
+	}
+
+	.cta-block-last .form-wrapper input[type="text"], 
+	.cta-block-last .form-wrapper input[type="submit"] {
+		display: block;
+		.radius-props();
+		transition: height 1s ease-in;
+		height: 34px;
+	}
+
+	.cta-block-last .form-wrapper input[type="text"] {
+		width: 154px;
+		float: left;
+		font-size: 13px;
+	}
+ 
+	.cta-block-last .form-wrapper input[type="submit"] {
+		transition: margin-top 1s ease-in;
+		width: 77px;
+		margin-top: 0px;
+		padding: 0px;
+		font-size: 12px;
+		float: right;
+	}
+
+	.mobile-menu-wrap .mobile-social-bar .home img {
+		width: 138px;
+	}
+}

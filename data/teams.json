@@ -1,0 +1,136 @@
+{
+	"team": [
+	  {
+		"status": "home",
+		"id": "akron",
+		"team": "Akron",
+		"date": "September 6",
+		"place": "Beaver Stadium",
+		"time": "TBD Kickoff",
+		"event": "",
+		"logo": "images/team-logos/akron-logo.svg"
+	  },
+  
+	  {
+		"status": "home",
+		"id": "massachusetts",
+		"team": "Massachusetts",
+		"date": "September 20",
+		"place": "Beaver Stadium",
+		"time": "TBD Kickoff",
+		"event": "",
+		"logo": "images/team-logos/um-logo.svg"
+	  },
+  
+	  {
+		"status": "home",
+		"id": "northwestern",
+		"team": "Northwestern",
+		"date": "September 27",
+		"place": "Beaver Stadium",
+		"time": "Noon Kickoff",
+		"event": "Homecoming",
+		"logo": "images/team-logos/northwest-logo.svg"
+	  },
+  
+	  {
+		"status": "home",
+		"id": "ohio",
+		"team": "Ohio State",
+		"date": "October 25",
+		"place": "Beaver Stadium",
+		"time": "8pm Kickoff",
+		"event": "White Out",
+		"logo": "images/team-logos/ohio-state-logo.svg"
+	  },
+  
+	  {
+		"status": "home",
+		"id": "maryland",
+		"team": "Maryland",
+		"date": "November 1",
+		"place": "Beaver Stadium",
+		"time": "TBD Kickoff",
+		"event": "",
+		"logo": "images/team-logos/maryland-logo.svg"
+	  },
+  
+	  {
+		"status": "home",
+		"id": "temple",
+		"team": "Temple",
+		"date": "November 15",
+		"place": "Beaver Stadium",
+		"time": "TBD Kickoff",
+		"event": "",
+		"logo": "images/team-logos/temple-logo.svg"
+	  },
+  
+	  {
+		"status": "home",
+		"id": "michiganst",
+		"team": "Michigan State",
+		"date": "November 29",
+		"place": "Beaver Stadium",
+		"time": "TBD Kickoff",
+		"event": "Senior Day",
+		"logo": "images/team-logos/mich-st-logo.svg"
+	  },
+  
+	  {
+		"status": "away",
+		"id": "ucf",
+		"team": "UCF",
+		"date": "August 30",
+		"place": "Dublin, IRELAND",
+		"time": "8:30AM (ET) Kickoff",
+		"event": "",
+		"logo": "images/team-logos/ucf-logo.svg"
+	  },
+  
+	  {
+		"status": "away",
+		"id": "rutgers",
+		"team": "Rutgers",
+		"date": "September 13",
+		"place": "New Brunswick, NJ",
+		"time": "8PM Kickoff",
+		"event": "",
+		"logo": "images/team-logos/rutgers.svg"
+	  },
+  
+	  {
+		"status": "away",
+		"id": "michigan",
+		"team": "Michigan",
+		"date": "October 11",
+		"place": "ANN ARBOR, MI",
+		"time": "7PM Kickoff",
+		"event": "",
+		"logo": "images/team-logos//michigan-logo.svg"
+	  },
+  
+	  {
+		"status": "away",
+		"id": "indiana",
+		"team": "Indiana",
+		"date": "Novemebr 8",
+		"place": "Bloomington, IN",
+		"time": "TBD Kickoff",
+		"event": "",
+		"logo": "images/team-logos/Indiana-logo.svg"
+	  },
+  
+	  {
+		"status": "away",
+		"id": "illinois",
+		"team": "Illinois",
+		"date": "November 22",
+		"place": "Champaign, IL",
+		"time": "TBD Kickoff",
+		"event": "",
+		"logo": "images/team-logos/Illinois-logo.svg"
+	  }
+	]
+  }
+  
